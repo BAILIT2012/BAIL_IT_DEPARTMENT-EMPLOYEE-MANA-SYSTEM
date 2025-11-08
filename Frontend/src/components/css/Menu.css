@@ -1,0 +1,51 @@
+.canteen-menu-page {
+  background: linear-gradient(to bottom right, #ffffff, #e8f5e9);
+}
+
+.header-section {
+  background: linear-gradient(to right, #4caf50, #2e7d32);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.table {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #4caf50 !important;
+  color: white;
+  font-weight: 600;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.table tr:hover {
+  background-color: #f1f8e9;
+  transition: 0.3s;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signature {
+  font-family: "Shadows Into Light", cursive;
+  color: #2e7d32;
+  font-size: 18px;
+}

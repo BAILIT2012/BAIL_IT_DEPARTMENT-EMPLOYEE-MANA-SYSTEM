@@ -1,0 +1,19 @@
+.bg-gradient {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.btn-gradient {
+  background: linear-gradient(to right, #e67e22, #d35400);
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(to right, #d35400, #e67e22);
+  transform: scale(1.02);
+}
+
+.btn-gradient:active {
+  transform: scale(0.98);
+}
