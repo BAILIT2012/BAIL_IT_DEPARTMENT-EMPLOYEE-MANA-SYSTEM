@@ -187,7 +187,7 @@ app.post("/generate-qr", async (req, res) => {
           return res.json({
             success: true,
             message: "QR generated successfully",
-            qr_url: `http://192.168.5.20:8281/${qrPath}`,
+            qr_url: `https://192.168.5.20:8281/${qrPath}`,
             qrImage,
           });
         });
