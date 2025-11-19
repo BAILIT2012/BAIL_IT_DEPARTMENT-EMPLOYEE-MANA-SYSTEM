@@ -37,7 +37,7 @@ FOREIGN KEY (employee_code) REFERENCES users(employee_code)
 SELECT* FROM employee_qr;
 
 DELETE FROM employee_qr
-WHERE employee_code= "BAIL0231";
+WHERE employee_code= "BAIL0825";
 
 
 
@@ -57,7 +57,7 @@ CREATE TABLE employee_wallet (
 SELECT * FROM employee_wallet;
 
 DELETE FROM employee_wallet
-WHERE employee_code= "BAIL0231";
+WHERE employee_code= "BAIL0825";
 
 -- ------------------------------Canteen System Table Schema Section---------------------------------
 

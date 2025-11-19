@@ -129,7 +129,7 @@ const handleInput=(event)=>{
           </div> */}
 
           <button onSubmit={handleSubmit} type="submit" className="btn btn-success w-100">
-            Sign Up
+            Sign up
           </button>
 
           <p className="text-center mt-3">

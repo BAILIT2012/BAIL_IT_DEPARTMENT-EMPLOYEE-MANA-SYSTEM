@@ -1,6 +1,6 @@
 // src/App.jsx
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
@@ -10,25 +10,36 @@ import EmployeeForm from "./components/QrCode";
 import EmployeeWallet from "./components/EmployeeWallet";
 import TransactionHistory from "./components/EmployeeTransactionHistory";
 import TokenHistory from "./components/TokenHistory";
+import BetaVersion from "../BetaVersion";
+import maintenanceConfig from "./config/maintenance";
+import Maintenance from "./pages/Maintenance";
 
 
 function App() {
+  if (maintenanceConfig.enabled) {
+  return <Maintenance />;
+}
+
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/menu" element={<Menu />} />
-      <Route path="/mealbooking" element={<MealBooking />} />
-      <Route path="/generate-qr" element={<EmployeeForm />} />
-      <Route path="/employee-wallet" element={<EmployeeWallet />} />
-      <Route path="/employee_transactionHistory" element={<TransactionHistory/>} />
-      <Route path="/token-history" element={<TokenHistory/>} />   
+    <BrowserRouter>
+      {/* Beta component globally visible */}
+      <BetaVersion /> 
+
+      <Routes>
       
 
-
-    </Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/mealbooking" element={<MealBooking />} />
+        <Route path="/generate-qr" element={<EmployeeForm />} />
+        <Route path="/employee-wallet" element={<EmployeeWallet />} />
+        <Route path="/employee_transactionHistory" element={<TransactionHistory />} />
+        <Route path="/token-history" element={<TokenHistory />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
