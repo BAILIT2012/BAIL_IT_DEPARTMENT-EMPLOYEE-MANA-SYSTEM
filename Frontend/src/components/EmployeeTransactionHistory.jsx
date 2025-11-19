@@ -11,7 +11,7 @@ function TransactionHistory() {
       return;
     }
 
-    fetch(`http://localhost:8281/employee/transactions/${employeeCode}`)
+    fetch(`http://192.168.5.20:8281/employee/transactions/${employeeCode}`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data) && data.length > 0) {

@@ -13,7 +13,7 @@ const EmployeeWallet = () => {
     setWallet(null);
 
     try {
-      const res = await fetch(`http://localhost:8321/admin/check-wallet/${employeeCode}`);
+      const res = await fetch(`http://192.168.5.20:8321/admin/check-wallet/${employeeCode}`);
       const data = await res.json();
 
       if (!res.ok || !data.success) {

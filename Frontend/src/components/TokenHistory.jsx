@@ -5,7 +5,7 @@ function TokenHistory() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8281/token-history")
+    fetch("http://192.168.5.20:8281/token-history")
       .then((res) => {
         if (!res.ok) throw new Error("Network error");
         return res.json();

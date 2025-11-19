@@ -22,8 +22,8 @@ let db;
 
 function handleDisconnect() {
   db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
+    host: "192.168.5.20",
+    user: "remote_user",
     password: "Bail@123",
     database: "employee_auth",
   });
@@ -131,9 +131,9 @@ app.post("/generate-qr", async (req, res) => {
     }
 
     // ✅ Step 2: Generate QR file locally
-    await QRCode.toFile(qrFullPath, `http://localhost:8281/employee/${employee_code}`);
+    const qrScanUrl = `https://192.168.5.20:5175/canteen-scanner?code=${employee_code}`;
+    await QRCode.toFile(qrFullPath, qrScanUrl);
     console.log("✅ QR file generated successfully");
-
     // ✅ Step 3: Check if employee QR already exists
     db.query("SELECT * FROM employee_qr WHERE employee_code = ?", [employee_code], async (err, results) => {
       if (err) {
@@ -141,8 +141,10 @@ app.post("/generate-qr", async (req, res) => {
         return res.status(500).json({ success: false, error: "Database Error" });
       }
 
-      const qrUrl = `http://localhost:5175/canteen?code=${employee_code}`;
-      const qrImage = await QRCode.toDataURL(qrUrl);
+     
+      
+      const qrImage = await QRCode.toDataURL(qrScanUrl);
+
 
       if (results.length > 0) {
         // 🌀 Update existing QR
@@ -163,7 +165,7 @@ app.post("/generate-qr", async (req, res) => {
           return res.json({
             success: true,
             message: "QR updated successfully",
-            qr_url: `http://localhost:8281/${qrPath}`,
+            qr_url: `https://192.168.5.20:8281/${qrPath}`,
             qrImage,
           });
         });
@@ -185,7 +187,7 @@ app.post("/generate-qr", async (req, res) => {
           return res.json({
             success: true,
             message: "QR generated successfully",
-            qr_url: `http://localhost:8281/${qrPath}`,
+            qr_url: `http://192.168.5.20:8281/${qrPath}`,
             qrImage,
           });
         });
@@ -475,6 +477,6 @@ app.post("/api/deduct-credits", (req, res) => {
 // db.end();// sql database connecttion end point
 
 app.listen(8081, () => {
-  console.log(`Server running on port 8081`);
+  console.log(`Connected to MySQL on local WiFi (192.168.5.20)'`);
   
 });

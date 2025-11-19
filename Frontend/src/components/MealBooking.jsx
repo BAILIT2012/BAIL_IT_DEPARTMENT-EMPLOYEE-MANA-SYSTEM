@@ -26,7 +26,7 @@ const MealBooking = () => {
     event.preventDefault();
     // validation
     
-    axios.post('http://localhost:8081/mealbooking', MealData)
+    axios.post('http://192.168.5.20:8081/mealbooking', MealData)
     alert("✅ Meal booked successfully!");
   };
 

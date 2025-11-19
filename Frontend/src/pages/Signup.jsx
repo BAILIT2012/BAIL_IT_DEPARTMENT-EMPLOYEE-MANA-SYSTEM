@@ -24,7 +24,7 @@ const handleInput=(event)=>{
   event.preventDefault();
   setErrors(SignupValidation(values));
   if(errors.employee_code=== "" && errors.employee_name=== "" && errors.employee_department=== "" && errors.employee_designation=== "" && errors.employee_mobile=== "" && errors.password=== ""){
-    axios.post('http://localhost:8081/signup', values)
+    axios.post('http://192.168.5.20:8081/signup', values)
     .then(res=> {
       navigate('/')
     }

@@ -33,7 +33,7 @@ function EmployeeForm() {
 
     try {
       const res = await axios.get(
-        `http://localhost:8081/check-qr/${formData.employee_code}`
+        `http://192.168.5.20:8081/check-qr/${formData.employee_code}`
       );
 
       if (res.data.qrExists) {
@@ -60,7 +60,7 @@ function EmployeeForm() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8081/generate-qr",
+        "http://192.168.5.20:8081/generate-qr",
         formData,
         {
           headers: {
@@ -71,7 +71,7 @@ function EmployeeForm() {
       );
 
       if (res.data.success) {
-        setQrImage(`http://localhost:8081/${res.data.qrFilePath}`);
+        setQrImage(`http://192.168.5.20:8081/${res.data.qrFilePath}`);
         alert("✅ QR Generated Successfully!");
       } else {
         alert(res.data.message || "QR generation failed. Try again.");

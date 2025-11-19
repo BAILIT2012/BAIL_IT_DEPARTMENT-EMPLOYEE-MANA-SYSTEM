@@ -22,7 +22,7 @@ function Login() {
 
     if (errors.employee_code === "" && errors.password === "") {
       axios
-        .post("http://localhost:8081/login", values)
+        .post("http://192.168.5.20:8081/login", values)
         .then((res) => {
           if (res.data.success) {
   localStorage.setItem("employee_code", res.data.employee_code); // ✅ Store employee_code for QR authorization
